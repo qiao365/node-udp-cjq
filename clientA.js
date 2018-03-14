@@ -21,9 +21,9 @@ function connectS () {
 	var message = new Buffer(JSON.stringify({
 		type:"boxBoot",//boxBoot开机／updateBox10分钟更新一次数据
 		boxSN:boxSN,
-		bandwidth: 10,//单位：bps
-  		diskUsage: 52,//单位：mb
-  		diskTotal: 2048 //单位：mb
+		bandwidth: 11,//单位：bps
+  		diskUsage: 62,//单位：mb
+  		diskTotal: 680 //单位：mb
 	}));
 	socket.send(message, 0, message.length, serverPort, serverHost, function (err, nrOfBytesSent) {
 	    if (err) return console.log(err);
@@ -37,9 +37,9 @@ function sendMessageToS () {
 	var upmessage = new Buffer(JSON.stringify({
 		type:"updateBox",//boxBoot开机／updateBox 10分钟更新一次数据
 		boxSN:boxSN,
-		bandwidth: 10,//单位：bps
-  		diskUsage: 52,//单位：mb
-  		diskTotal: 2048 //单位：mb
+		bandwidth: 11,//单位：bps
+  		diskUsage: 62,//单位：mb
+  		diskTotal: 680 //单位：mb
 	}));
 
 	socket.send(upmessage, 0, upmessage.length, serverPort, serverHost, function (err, nrOfBytesSent) {
@@ -48,7 +48,7 @@ function sendMessageToS () {
 		// socket.close();
 		setTimeout(function () {
 			sendMessageToS();
-		}, 10000);
+		}, 2 * 1000);
 	});
 }
 

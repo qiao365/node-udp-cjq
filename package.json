@@ -2,9 +2,12 @@
   "name": "node-udp-cjq",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app"
+    "start": "node publicserver.js"
   },
   "dependencies": {
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "moment": "^2.20.1",
+    "pg": "^7.3.0",
+    "sequelize": "^4.11.0"
   }
 }
