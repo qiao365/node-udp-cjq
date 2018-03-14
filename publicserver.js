@@ -29,6 +29,7 @@ socket.on('listening', function () {
 
 socket.on('message', function (message, remote) {
     // console.log(remote.address + ':' + remote.port +' - ' + message);
+    console.log(remote.address + ':' + remote.port);
 	var data = JSON.parse(message);
 	switch(data.type)
 	{
@@ -42,6 +43,9 @@ socket.on('message', function (message, remote) {
             }
         }).then((boxSum)=>{
             if(boxSum == null){
+                if(!data.boxSN){
+                    return {};
+                }
                 return DomainBoxSum.create({
                     boxSN: data.boxSN,
                     boxIp:remote.address,
@@ -76,7 +80,7 @@ socket.on('message', function (message, remote) {
                         });
                     }else{
                         return boxSum.increment({activeTime:1,bt: data.bandwidth, st: data.diskTotal}).then((data)=>{
-                            console.log(data.boxSN + "加1分钟");
+                            // console.log(data.boxSN + "加1分钟");
                         }).then(()=>{
                             // console.log("这里计算是否达到产币条件");
                         });
