@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // based on http://www.bford.info/pub/net/p2pnat/index.html
 var dgram = require('dgram');
-var redisdb = require('redis');
+// var redisdb = require('redis');
 var http = require("http");
 var prepare = require('./table/boxserver.prepare');
 var CONFIG = prepare.CONFIG;
@@ -9,7 +9,7 @@ const TABLE_DEFINE = require("./table/table.define");
 const moment = require('moment');
 // const DomainEveryTimeBox = TABLE_DEFINE.DomainEveryTimeBox;
 const DomainBoxSum = TABLE_DEFINE.DomainBoxSum;
-var redis = redisdb.createClient();
+// var redis = redisdb.createClient();
 var appVersion = {
 	"version":"0.1.0",
 	"versionCode":10,
@@ -67,7 +67,7 @@ socket.on('message', function (message, remote) {
                         boxSN: data.boxSN
                     }
                 }).then(()=>{
-                    if(boxSum.statuts == 0){
+                    if(boxSum.status == 0){
                         console.log("大于3分钟,清零");
                         return DomainBoxSum.update({
                             st:0,
