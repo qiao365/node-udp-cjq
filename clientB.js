@@ -7,7 +7,7 @@ var dgram = require('dgram');
 
 var socket = dgram.createSocket('udp4');
 let boxSN = '967135891631';//967135891631
-var serverPort = 3333;
+var serverPort = 9999;
 var serverHost = '192.168.1.168';
 
 socket.on('message', function (message, remote) {

@@ -18,7 +18,7 @@ var appVersion = {
 
 // 172.24.34.141
 var socket = dgram.createSocket('udp4');
-socket.bind(3333, '192.168.1.168');
+socket.bind(9999, '192.168.1.168');
 
 var publicEndpointA = null;
 var publicEndpointB = null;

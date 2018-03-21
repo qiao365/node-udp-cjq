@@ -6,8 +6,8 @@ var dgram = require('dgram');
 
 
 var socket = dgram.createSocket('udp4');
-let boxSN = 'U6656Sj74325';//967135891631
-var serverPort = 3333;
+let boxSN = 'U6656Sj74325';//'U6656Sj74325';//967135891631
+var serverPort = 9999;
 var serverHost = '192.168.1.168';
 
 socket.on('message', function (message, remote) {
@@ -37,9 +37,9 @@ function sendMessageToS () {
 	var upmessage = new Buffer(JSON.stringify({
 		type:"updateBox",//boxBoot开机／updateBox 10分钟更新一次数据
 		boxSN:boxSN,
-		bandwidth: 11,//单位：bps
-  		diskUsage: 62,//单位：mb
-  		diskTotal: 680 //单位：mb
+		bandwidth: 9500000,//单位：bps
+  		diskUsage: 329806,//单位：mb
+  		diskTotal: 953867 //单位：mb
 	}));
 
 	socket.send(upmessage, 0, upmessage.length, serverPort, serverHost, function (err, nrOfBytesSent) {
