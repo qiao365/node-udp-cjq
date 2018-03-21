@@ -169,5 +169,5 @@ intervalHandle=setInterval(function(){
             });
        });
     });
-}, 2*1000);//2s
+}, 60*1000);//60s
 
