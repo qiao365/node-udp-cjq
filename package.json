@@ -8,6 +8,8 @@
     "redis": "^2.8.0",
     "moment": "^2.20.1",
     "pg": "^7.3.0",
-    "sequelize": "^4.11.0"
+    "sequelize": "^4.11.0",
+    "express": "~4.12.2",
+    "body-parser": "^1.18.2"
   }
 }
